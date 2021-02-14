@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>webapp</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+    crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+    crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    
+    <script src="js/myscript.js"></script>
+</head>
+<body ng-app="MyApp" ng-controller="MyCtrl">
+    
+    <div class="container">
+        <div class="jumbotron py-3">
+            <h1 class="text-center ">{{title}}</h1>
+            <img src="image/e.jpg" class="card-img-top" alt="boy">
+            <p class="text-lg-center">
+                This was not a shelter in place order, but rather the next step in the Urgent Phase laid out in the Utah Leads Together plan. This directive aimed to make clear
+                 what individuals and businesses should do to slow the spread of COVID-19 in our state and communities.
+                A new unfamiliar robocall is making its way through phones across Canada.
+              No, its not a CRA scam, or someone claiming you owe money only payable by gift cards,
+                it’s an automated voice saying, “Stay home. Stay safe and stay home.”
+            </p>
+           <!-- all data-->
+
+           <div class="card-deck text-center" >
+               <br>
+            <div class="col-md-4">
+                <div class="card bg-warning text-white">
+                    <div class="card-body">
+                      <h3>Confirmed Cases</h3>
+                      <h3>{{all_data.confirmed.value}}</h3>
+                       </div>
+                    </div>
+                 </div>
+                 <br>
+                 
+               <div class="col-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                      <h3>Recovered Cases</h3>
+                      <h3>{{all_data.recovered.value}}</h3>
+                       </div>
+                    </div>
+                  </div>
+                  <br>
+               <div class="col-md-4">
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+                      <h3>Death Cases</h3>
+                      <h3>{{all_data.deaths.value}}</h3>
+                       </div>
+                    </div>
+               </div>
+           </div>
+
+           <!--end all data-->
+      <input type="text" 
+      class="form-control mt-4" 
+      placeholder="Enter country here"
+      ng-model="c"
+      ng-change="get_c_data()"
+      />
+      
+                   <!--c_data-->
+                  <div class="container-fluid" ng-if="c_data">
+                   <h1 class="text-lg-center mt-4 text-uppercase">{{c}} status</h1>
+                   <div class="card-deck text-center mt-4" >
+                    <br>
+                 <div class="col-md-4">
+                     <div class="card bg-warning text-white">
+                         <div class="card-body">
+                           <h3>Confirmed Cases</h3>
+                           <h3>{{c_data.confirmed.value}}</h3>
+                            </div>
+                         </div>
+                      </div>
+                      <br>
+                      
+                    <div class="col-md-4">
+                     <div class="card bg-success text-white">
+                         <div class="card-body">
+                           <h3>Recovered Cases</h3>
+                           <h3>{{c_data.recovered.value}}</h3>
+                            </div>
+                         </div>
+                       </div>
+                       <br>
+                    <div class="col-md-4">
+                     <div class="card bg-danger text-white">
+                         <div class="card-body">
+                           <h3>Death Cases</h3>
+                           <h3>{{c_data.deaths.value}}</h3>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+                   <!--end c_data-->
+
+        </div>
+    </div>
+</body>
+</html>
